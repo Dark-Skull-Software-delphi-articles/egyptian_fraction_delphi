@@ -5,26 +5,25 @@ Small code sample in Delphi to demonstrate how to compute egyptian fractions.
 
 Description text currently only in french.
 
-/////////////////////////
-// Fraction Egyptienne //
-/////////////////////////              
-
- 
- Introduction  
+Fractions Egyptiennes
+=====================
 
 
-Les Egyptiens (2.000 AC)utilisaient une technique particulière pour calculer le
-quotient de 2 nombres, par exemple 253 à diviser par 27. Ils établissaient
-certains multiples du dénominateur, en multipliant le nombre obtenu par 2,
-jusqu'à l'obtention d'un nombre supérieur au numérateur:
+Les Egyptiens (2.000 AC) utilisaient une technique particuliÃ¨re pour calculer le
+quotient de 2 nombres, par exemple 253 Ã  diviser par 27. Ils Ã©tablissaient
+certains multiples du dÃ©nominateur, en multipliant le nombre obtenu par 2,
+jusqu'Ã  l'obtention d'un nombre supÃ©rieur au numÃ©rateur :
 
 
+```delphi
    27   1  
    54   2  
   108   4  
   216   8  
   512  16  
-               
+```
+
+```delphi
     253          
    -216 (=8*27)  
    ----          
@@ -32,53 +31,66 @@ jusqu'à l'obtention d'un nombre supérieur au numérateur:
     -27 (=1*27)  
    ----          
      10          
+```
 
 On peut conclure que 
 
+```delphi
   253 = 10 + (1 * 27) + (8 * 27)
+```
 ou que 
+```delphi
   253 / 27 = 9 + 10 / 27
-et 10 / 27 était exprimé sous la forme d'une somme de fractions à numérateur
-unitaire (seule exception: 2 / 3 était aussi accepté) et à dénominateur
-différents. Donc: 
+```
+et 10 / 27 Ã©ait exprimÃ© sous la forme d'une somme de fractions Ã  numÃ©rateur
+unitaire (seule exception: 2 / 3 Ã©tait aussi acceptÃ©) et Ã  dÃ©nominateur
+diffÃ©rents. Donc: 
+```delphi
   253 / 27 = 9 + 1 / 3 + 1 / 27
-
+```
  
- Intérêt des fractions égyptiennes de nos jours ?  
+IntÃ©rÃ©t des fractions Ã©gyptiennes de nos jours ?  
+================================================
 
+Les fractions Ã©gyptiennes rendent les comparaisons de fractions plus simples.
+Exemple: 3/4 est-il plus grand que 4/5 ? Pour le savoir, nous passons Ã  la
+reprÃ©sentation dÃ©cimale : 
 
-Les fractions égyptiennes rendent les comparaisons de fractions plus simples.
-Exemple: 3/4 est-il plus grand que 4/5 ? Pour le savoir, nous passons à la
-représentation décimale : 
-
+```delphi
   3 / 4 = 0,75
   4 / 5 = 0,8
   0,75 < 0,8
+```
 
-ou réduisons au même dénominateur : 
+ou rÃ©duisons au mÃªe dÃ©nominateur : 
 
+```delphi
   3 / 4 = 15 / 20
   4 / 5 = 16 / 20
   15 / 20 < 16 / 20
+```
 
-En utilisant les fractions égyptiennes, la réponse est immédiate: 
+En utilisant les fractions Ã©yptiennes, la rÃ©ponse est immÃ©diate: 
 
+```delphi
   3/4 = 1/2 + 1/4
   4/5 = 1/2 + 1/4 + 1/20
+```
 
 Autre avantage: imaginons que vous deviez partager 4 tartes entre 5 personnes.
-Il est évident que nous distribuerions des morceaux de tailles différentes à
-chacun mais dont la valeur totale serait chaque fois de 4/5ème de tarte.
-Ceci est juste d'un pont de vue mathématique mais risque sans doute de ne
-pas convaincre un enfant qu'il n'a pas reçu moins que son copain. Avec les
-fractions égyptiennes, chacun recevrait une moitié de tarte; laissant ainsi
+Il est Ã©vident que nous distribuerions des morceaux de tailles diffÃ©rentes Ã 
+chacun mais dont la valeur totale serait chaque fois de 4/5Ã¨me de tarte.
+Ceci est juste d'un pont de vue mathÃ©matique mais risque sans doute de ne
+pas convaincre un enfant qu'il n'a pas reÃ§u moins que son copain. Avec les
+fractions Ã©gyptiennes, chacun recevrait une moitiÃ© de tarte; laissant ainsi
 intacte une tarte et demie. De ce qui reste, on couperait des quarts qui
-seraient distribués à tous et finalement le quart restant serait divisé
-en 5 parts égales.
+seraient distribuÃ©s Ã  tous et finalement le quart restant serait divisÃ©
+en 5 parts Ã©gales.
  
- Codage  
+Code
+====
 
-
+```delphi
   var
     Plus: integer;
     N, D, a: integer;
@@ -89,7 +101,7 @@ en 5 parts égales.
     D := StrToInt(Edit2.Text);
     Plus := 0;
     if D = 0 then begin LabelResult.Caption := 'Impossible : division par 0'; Exit; end
-    else LabelResult.Caption := 'Résultat de ' + Edit1.Text + '/' + Edit2.Text + ' : ';
+    else LabelResult.Caption := 'Rï¿½sultat de ' + Edit1.Text + '/' + Edit2.Text + ' : ';
     while N > D do
       begin
         Plus := Plus + 1;
@@ -110,11 +122,12 @@ en 5 parts égales.
         Inc(Plus);
         N := Tmp;
         D := a * D;
-        INC(a); {évite d'avoir 2 fois le même dénominateur}
+        INC(a); {Ã©vite d'avoir 2 fois le mÃªme dÃ©nominateur}
       end;
   end;
+```
 
 --------------------------------------------------------------------------------
 
-Dark Skull Software 
+Dark Skull Software <br/>
 http://www.darkskull.net
