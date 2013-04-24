@@ -62,7 +62,7 @@ représentation décimale :
   0,75 < 0,8
 ```
 
-ou réduisons au mêe dénominateur : 
+ou réduisons au même dénominateur : 
 
 ```delphi
   3 / 4 = 15 / 20
@@ -101,7 +101,7 @@ Code
     D := StrToInt(Edit2.Text);
     Plus := 0;
     if D = 0 then begin LabelResult.Caption := 'Impossible : division par 0'; Exit; end
-    else LabelResult.Caption := 'R�sultat de ' + Edit1.Text + '/' + Edit2.Text + ' : ';
+    else LabelResult.Caption := 'Résultat de ' + Edit1.Text + '/' + Edit2.Text + ' : ';
     while N > D do
       begin
         Plus := Plus + 1;
